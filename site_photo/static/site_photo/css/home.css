@@ -1,0 +1,168 @@
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: 'Georgia', serif;
+  background-color: #fff;
+}
+
+/* ========== INTRO / HEADER SECTION ========== */
+.intro {
+  padding: 60px 30px;
+  text-align: center;
+  background-color: white;
+  color: #111;
+  position: relative;
+  z-index: 1;
+}
+
+.intro h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 6px;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.intro .subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 400;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #888;
+}
+
+.intro-text {
+  font-style: italic;
+  font-size: 1rem;
+  color: #333;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.6;
+}
+
+/* ========== SCROLL SECTIONS ========== */
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh; /* <<< NÉCESSAIRE pour activer snap */
+}
+
+
+.section {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.section.white {
+  background-color: #fff;
+}
+
+.section.black {
+  background-color: #000;
+}
+
+.section.white img {
+  filter: grayscale(100%) contrast(1.1);
+}
+
+.section.black img {
+  filter: grayscale(100%) contrast(1.2);
+}
+
+.site-footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+  font-family: 'Georgia', serif;
+  letter-spacing: 1px;
+}
+
+.site-footer a {
+  color: #999;
+  text-decoration: none;
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-links {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+
+/* ===== Image de base ===== */
+.section img {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.4s ease-out;
+}
+
+/* ===== Quand visible ===== */
+.section.visible img {
+  opacity: 1;
+  animation: breathingZoom 4s ease-in-out infinite alternate;
+}
+
+/* ===== Animation "respiration continue" ===== */
+@keyframes breathingZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* Hover optionnel */
+.section img:hover {
+  filter: brightness(1.1) contrast(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
+
+
+

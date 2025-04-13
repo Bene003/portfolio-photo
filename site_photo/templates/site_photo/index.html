@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio - Noir & Blanc</title>
+  <link rel="stylesheet" href="{% static 'site_photo/css/home.css' %}">
+  <script defer src="{% static 'site_photo/js/scroll-theme.js' %}"></script>
+</head>
+
+<body>
+
+  <!-- ✅ Bloc d’intro -->
+  <header class="intro">
+    <h1><span>MARCO</span><br><span>MANCINI</span></h1>
+    <p class="subtitle">photographe</p>
+    <nav class="nav-links">
+      <a href="#">Overview</a>
+      <a href="#">Portraits</a>
+      <a href="#">Voyages</a>
+      <a href="#">Stories</a>
+      <a href="#">À propos</a>
+    </nav>
+    <p class="intro-text">
+      <em>
+        Bienvenue dans mon univers monochrome.<br>
+        Chaque image capture une histoire, sans couleurs, sans artifices.<br>
+        
+      </em>
+    </p>
+  </header>
+
+  <!-- ✅ Scroll container -->
+  <div class="scroll-container">
+    {% for img in images %}
+      <section class="section {% cycle 'white' 'black' %}">
+        <img src="{% static 'site_photo/img/'|add:img %}" alt="{{ img }}">
+      </section>
+    {% endfor %}
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Marco Mancini. Tous droits réservés.</p>
+    <p class="footer-links">
+      <a href="#">Instagram</a> | 
+      <a href="#">Behance</a> | 
+      <a href="#">Contact</a>
+    </p>
+  </footer>  
+
+  
+
+</body>
+</html>
+
